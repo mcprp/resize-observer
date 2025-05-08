@@ -15,7 +15,7 @@ interface ResizeObserverSizeCollection {
 const cache = new WeakMap<Element, ResizeObserverSizeCollection>();
 const scrollRegexp = /auto|scroll/;
 const verticalRegexp = /^tb|vertical/;
-const IE = (/msie|trident/i).test(global.navigator && global.navigator.userAgent);
+const IE = typeof window === 'undefined' ? false : (/msie|trident/i).test(global.navigator && global.navigator.userAgent);
 const parseDimension = (pixel: string | null): number => parseFloat(pixel || '0');
 
 // Helper to generate and freeze a ResizeObserverSize
